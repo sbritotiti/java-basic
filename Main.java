@@ -12,7 +12,12 @@ public class Main {
                 int n2 = s.nextInt();
                 System.out.println("Suma: " + (n1 + n2));
                 System.out.println("Resta: " + (n1 - n2));
-                System.out.println("Divi: " + (n1 * n2));
+                System.out.println("Multiplicacion: " + (n1 * n2));
+                if (n2 != 0) {
+                        System.out.println("Divi: " + (n1 / n2));
+                } else {
+                        System.err.println("Divicion por cero no definida");
+                }
                 System.out.println("");
                 System.out.println("");
                 System.out.println("------------");
