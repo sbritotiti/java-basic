@@ -1,9 +1,108 @@
 //import java.lang.reflect.Array;
 import java.util.Scanner;
 
-public class Main {
+abstract class Figura {
+        double base;
+        double altura;
+        double calcularArea(){
+                return base*altura;
+        } 
+    }
+    
+    class Cuadrado extends Figura {
+        
+        public Cuadrado(double lad1, double lad2) {
+            this.base = lad1;
+            this.altura = lad2;
+        }
+    
+        /*public double calcularArea() {
+            return Math.PI * radio * radio;
+        }*/
+    }
 
+    class Rectangulo extends Figura{
+        
+        public Rectangulo(double bas, double altur){
+                this.base=bas;
+                this.altura=altur;
+        }
+        
+    }
+
+interface Vehiculo {
+        default void acelerar(){
+                System.out.println("El coche está acelerando.");
+        } // Método abstracto
+        static void frenar(){
+                System.out.println("El coche está frenando.");
+            }
+}
+    
+    class Coche implements Vehiculo {
+        
+    }
+
+    enum Estado {
+        ACTIVO("En funcionamiento"),
+        INACTIVO("Fuera de servicio"),
+        SUSPENDIDO("Temporalmente detenido");
+    
+        private String descripcion;
+    
+        // Constructor
+        Estado(String descripcion) {
+            this.descripcion = descripcion;
+        }
+    
+        // Método para obtener la descripción
+        public String getDescripcion() {
+            return descripcion;
+        }
+    }
+
+enum Dia {
+        LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+    }
+
+class Animal{
+        void hacerSonido1(){
+                System.out.println("El animal hace sonido");
+        }
+}
+
+class Perro extends Animal{
+        void hacerSonido(){
+                System.out.println("El perro ladra");
+        }
+}
+
+public class Main {  
         public static void main(String[] args) {
+
+                Cuadrado cuadrado = new Cuadrado(5, 5);
+                System.out.println("Area del Cuadrado: "+cuadrado.calcularArea());
+                Rectangulo rectangulo = new Rectangulo(5,2);
+                System.out.println("Area del Rectangulo: "+rectangulo.calcularArea());
+                Animal animal = new Animal();
+                Perro perro = new Perro();
+                perro.hacerSonido();
+                perro.hacerSonido1();
+                
+                animal.hacerSonido1();
+                 
+                Vehiculo coche = new Coche();
+                coche.acelerar();
+                Vehiculo.frenar();
+                //Vehiculo.acelerar();
+                
+
+                Estado estado = Estado.ACTIVO;
+                System.out.println("Estado: "+estado);
+                //System.out.println("Descripcio: "+estado.descripcion);
+                System.out.println("Descripcion: "+estado.getDescripcion());
+                Dia d = Dia.SABADO;
+                System.out.println("El dia es: " + d);
                 //int num = 10;
                 //double num1 = 10;
                 //Probando metodo Overloading
@@ -57,7 +156,16 @@ public class Main {
                 //String nombreBuscar = s.next();
                 
                 //Usando constructor Usuario
-                Usuario usuario = new Usuario("Salvador", 34, "s");
+                Usuario usuario = new Usuario("Salvador", 34, "M");
+                Usuario usuario2 = new Usuario("Clau", 33, "F");
+                System.out.println(usuario.apellidos);
+                System.out.println(usuario2.apellidos);
+                usuario2.apellidos = "Brito";
+                System.out.println(usuario.apellidos);
+                System.out.println(usuario2.apellidos);
+                
+                int c = usuario.cantidadUsuarios();
+                System.out.println("Cantidad de usuarios: " + c);
                 System.out.println("Los datos sin teclear son: " + usuario.getNombre() + " " + usuario.getEdad() + " " + usuario.getSexo());
                 usuario.mostrarDatos();
                 //int indiceUsuario;

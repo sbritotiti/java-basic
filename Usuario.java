@@ -3,14 +3,18 @@
 public class Usuario {
 
     private String nombre;
+    public String apellidos;
     private int edad;
     private String sexo;
+    static int contador = 0;
 
     //Un constructor con parametros es equivalente a utilizar elmetodo set
     Usuario(String n, int i, String s){
         this.nombre=n;
         this.edad=i;
         this.sexo=s;
+        contador++;
+        this.apellidos = "Seoane";
     }
 
     public String getNombre(){
@@ -39,5 +43,10 @@ public class Usuario {
 
     void mostrarDatos(){
         System.out.println("Nombre: "+nombre+" Edad: "+edad+" Sexo: "+sexo);
+        
+    }
+
+    public int cantidadUsuarios(){
+        return contador;
     }
 }
