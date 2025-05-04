@@ -6,6 +6,13 @@ public class Usuario {
     private int edad;
     private String sexo;
 
+    //Un constructor con parametros es equivalente a utilizar elmetodo set
+    Usuario(String n, int i, String s){
+        this.nombre=n;
+        this.edad=i;
+        this.sexo=s;
+    }
+
     public String getNombre(){
         return nombre;
     }
@@ -30,22 +37,7 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    /*public static Usuario(String s, int i, String c){
-        nombre = s;
-        edad = i;
-        sexo = c;
-    }*/
-
-    /*public int GetIdUsuario(String Array[], String s){
-        for (int i = 0; i < Array.length; i++) {
-            System.out.println(Array[i]);
-            System.out.println(s);
-            if (Array[i].equals(s)) {
-                
-                return i+1;
-            }
-        }
-        
-        return 0;
-    }*/
+    void mostrarDatos(){
+        System.out.println("Nombre: "+nombre+" Edad: "+edad+" Sexo: "+sexo);
+    }
 }

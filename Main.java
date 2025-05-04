@@ -1,9 +1,24 @@
-import java.lang.reflect.Array;
+//import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Main {
 
         public static void main(String[] args) {
+                //int num = 10;
+                //double num1 = 10;
+                //Probando metodo Overloading
+                //int r = methodOverl(num, num);
+                //System.err.println(r);
+                //double d = methodOverl(num1, num1);
+                //System.out.println(d);
+
+                //Recordadndo Recursividad
+                //int recurs = Recursivida(5,10);
+                //System.out.println(recurs);
+
+                //Utilizando constructor
+                //Persona p = new Persona("Salvador");
+                //p.mostrarNombre();
                 //String messageTest = "messageTest";
                 //System.out.println("Hello: " + messageTest);
                 Scanner s = new Scanner(System.in);
@@ -41,7 +56,10 @@ public class Main {
                 //System.out.println("Teclee el nombre que desea buscar: ");
                 //String nombreBuscar = s.next();
                 
-                Usuario usuario = new Usuario();
+                //Usando constructor Usuario
+                Usuario usuario = new Usuario("Salvador", 34, "s");
+                System.out.println("Los datos sin teclear son: " + usuario.getNombre() + " " + usuario.getEdad() + " " + usuario.getSexo());
+                usuario.mostrarDatos();
                 //int indiceUsuario;
                 System.out.println("Teclee el nombre del usuario: ");
                 usuario.setNombre(s.next());
@@ -58,8 +76,27 @@ public class Main {
                 }*/
                 
                 System.out.println("Los datos tecleados fueron: " + usuario.getNombre() + " " + usuario.getEdad() + " " + usuario.getSexo());
-
+                usuario.mostrarDatos();
                 s.close();
+        }
+
+        static int Recursivida(int start, int end){
+                if (end>start) {
+                        //System.out.println("La Suma: " + (n + Recursivida(n-1)));
+                        return end + Recursivida(start, end-1);
+                        //System.out.println("------" +sumaRec);
+                        //return sumaRec;
+                }else{
+                        return end;
+                }
+        }
+
+        static int methodOverl(int x, int y){
+                return x + y;
+        }
+
+        static double methodOverl(double x, double y){
+                return x + y;
         }
 /*/
         public static int Potencia (int i, int o){
